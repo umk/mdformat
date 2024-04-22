@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template data gets template data for array field 1`] = `
+[
+  {
+    "groups": {
+      "name": {
+        "index": 0,
+        "refs": {
+          "name": [
+            "Eduardo",
+            "Leanna",
+            "Benjamin",
+          ],
+        },
+      },
+    },
+  },
+  {
+    "groups": {
+      "name": {
+        "index": 1,
+        "refs": {
+          "name": [
+            "Eduardo",
+            "Leanna",
+            "Benjamin",
+          ],
+        },
+      },
+    },
+  },
+  {
+    "groups": {
+      "name": {
+        "index": 2,
+        "refs": {
+          "name": [
+            "Eduardo",
+            "Leanna",
+            "Benjamin",
+          ],
+        },
+      },
+    },
+  },
+]
+`;

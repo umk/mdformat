@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`groupDataByRefs groups data by ref with and without explicit group ID 1`] = `
+"a 1 a
+b 2 b
+c 3 c"
+`;
+
+exports[`groupDataByRefs groups data by refs 1`] = `
+"perspiciatis omnis
+sequi porro
+unde iste"
+`;
+
+exports[`groupDataByRefs groups data by refs cross several groups 1`] = `
+"perspiciatis ex
+	omnis
+perspiciatis ea
+	omnis
+sequi non
+	porro
+sequi proident
+	porro
+unde ex
+	iste
+unde ea
+	iste"
+`;
+
+exports[`groupDataByRefs groups data by refs if ref data doesn't exist 1`] = `
+"perspiciatis {{gr:amet}}
+sequi {{gr:amet}}
+unde {{gr:amet}}"
+`;

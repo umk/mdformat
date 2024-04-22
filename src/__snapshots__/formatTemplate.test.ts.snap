@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`template creates template with single array data field 1`] = `
+"Hello Eduardo!
+Hello Leanna!
+Hello Benjamin!"
+`;
+
+exports[`template creates template with single data field 1`] = `"Hello Eduardo!"`;
+
+exports[`template creates template with three combined array data fields 1`] = `
+"Eduardo goes to North Susanview on Feb, 5!
+Eduardo goes to Caylafurt on Jan, 1!
+Leanna goes to North Susanview on Feb, 5!
+Leanna goes to Caylafurt on Jan, 1!"
+`;
+
+exports[`template creates template with two permutated array data fields 1`] = `
+"Eduardo goes to Fort Haydenmouth!
+Leanna goes to Fort Haydenmouth!
+Benjamin goes to Fort Haydenmouth!
+Eduardo goes to Lake Luzport!
+Leanna goes to Lake Luzport!
+Benjamin goes to Lake Luzport!"
+`;
+
+exports[`template creates template with two zipped array data fields 1`] = `
+"Eduardo goes to Fort Haydenmouth!
+Leanna goes to Lake Luzport!
+Benjamin goes to Felicitystad!"
+`;
+
+exports[`template creates template without data 1`] = `"Amor ventosus cur. Asporto rerum sit delego expedita consequuntur. Clam absens pecco laborum concido cohaero adstringo. Acsi ipsa talio certe. Tenetur modi utilis carus ullam."`;
+
+exports[`template doesn't permutate properties, that are not referenced in template 1`] = `
+"Hello Eduardo!
+Hello Leanna!
+Hello Benjamin!"
+`;
+
+exports[`template preserves the substitution field if root property not found in the data 1`] = `"Hello {{name}}!"`;
+
+exports[`template resolves array path properties preserving structure of data 1`] = `
+"Scotty Stark of age 51 lives in Effietown
+Anabel Wuckert of age 62 lives in Effietown
+Rusty Sporer of age 53 lives in New Chase
+Ansel Murray of age 53 lives in New Chase"
+`;
+
+exports[`template resolves path properties 1`] = `"Hello Eduardo Breitenberg!"`;
+
+exports[`template takes the least number of zipped items 1`] = `
+"Eduardo goes to Fort Haydenmouth!
+Leanna goes to Lake Luzport!"
+`;
