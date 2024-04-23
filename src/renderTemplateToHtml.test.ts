@@ -67,7 +67,7 @@ describe('renderTemplateToHtml', () => {
 `)
   })
 
-  it('renders template with data reference in href', () => {
+  it('renders template with data reference in query parameter', () => {
     const content = 'Lorem [ipsum](https://dolor.com/?sit={{sit}}) amet'
     const data = {
       sit: 'do&eiusmod=tempor',
@@ -75,6 +75,16 @@ describe('renderTemplateToHtml', () => {
     const result = renderTemplateToHtml(content, data)
     expect(result).toEqual(
       '<p>Lorem <a href="https://dolor.com/?sit=do%26eiusmod%3Dtempor">ipsum</a> amet</p>\n',
+    )
+  })
+  it('renders template with data reference in URL', () => {
+    const content = 'Lorem [ipsum](https://dolor.com/{{sit}}/?sit=amet) amet'
+    const data = {
+      sit: 'do&eiusmod=tempor',
+    }
+    const result = renderTemplateToHtml(content, data)
+    expect(result).toEqual(
+      '<p>Lorem <a href="https://dolor.com/do%26eiusmod%3Dtempor/?sit=amet">ipsum</a> amet</p>\n',
     )
   })
 })

@@ -1,7 +1,13 @@
 {
   "name": "mdformat",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "description": "An end user friendly Markdown template engine",
+  "author": "Uladzislau Maslakou <umaslakou@gmail.com>",
+  "homepage": "https://github.com/umk/mdformat#readme",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "types": "dist/mjs/index.d.ts",
   "scripts": {
     "build": "rimraf ./dist && run-s build:*",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,11 +24,9 @@
     "type": "git",
     "url": "git+https://github.com/umk/MDformat.git"
   },
-  "author": "Uladzislau Maslakou <umaslakou@gmail.com>",
   "bugs": {
     "url": "https://github.com/umk/MDformat/issues"
   },
-  "homepage": "https://github.com/umk/MDformat#readme",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@types/jest": "^29.5.12",
@@ -45,6 +49,12 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   },
   "dependencies": {
     "marked": "^12.0.2"

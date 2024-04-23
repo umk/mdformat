@@ -9,6 +9,7 @@ Features:
 - Mapping hierarchical data onto templates
 - Automatic expansion of paragraphs, lists, and tables into multiple rows when generated from data fields scoped to collection elements
 - Implementation of zip groups, enabling the combination of elements from multiple collections into one unified collection
+- Automatically encoding placeholder values if it's a part of a URL
 
 The engine leverages the [marked](https://www.npmjs.com/package/marked) package for Markdown parsing and rendering.
 
@@ -34,7 +35,7 @@ Once installed, you can start using MDformat in your project.
 
 MDformat won't throw an error if input data is missing, but rather render the placeholder as is.
 
-```javascript
+```typescript
 import { renderTemplateToHtml } from 'mdformat'
 
 const content = 'Lorem ipsum dolor sit amet, {{consectetur}} adipiscing elit'
@@ -47,7 +48,7 @@ const result = renderTemplateToHtml(content, data)
 
 MDformat defines Markdown structures commonly used for enumerating elements such as top-level paragraphs, list items, and table rows. If template for these structures include a reference to an array data field or its nested properties, MDformat replicates these structures within their respective parent elements.
 
-```javascript
+```typescript
 import { renderTemplateToHtml } from 'mdformat'
 
 const content = 'Lorem ipsum dolor {{sit}} amet'
@@ -62,7 +63,7 @@ const result = renderTemplateToHtml(content, data)
 */
 ```
 
-```javascript
+```typescript
 import { renderTemplateToHtml } from 'mdformat'
 
 const content = '- Lorem ipsum dolor {{sit}} amet'
@@ -83,7 +84,7 @@ const result = renderTemplateToHtml(content, data)
 
 If a Markdown structure references two or more fields that are arrays or nested properties within arrays, but do not share the same array as their common ancestor, the elements of the arrays are permuted. The max number of permutations can be configured to avoid out of memory, especially when using the library in the back-end.
 
-```javascript
+```typescript
 import { renderTemplateToHtml } from 'mdformat'
 
 const content = '{{name}} goes to {{city}}!'
@@ -106,7 +107,7 @@ const result = renderTemplateToHtml(content, data)
 
 To avoid permutation when a Markdown structure refers to two or more fields that are arrays or nested properties within arrays, but do not share the same array as their common ancestor, the user can define a zip group. This zip group combines the arrays into one by index of items. If arrays have different sizes, the lesser number of items is taken.
 
-```javascript
+```typescript
 import { renderTemplateToHtml } from 'mdformat'
 
 const content = '{{itinerary:name}} goes to {{itinerary:city}}!'
@@ -119,6 +120,23 @@ const result = renderTemplateToHtml(content, data)
 <p>Eduardo goes to Fort Haydenmouth!</p>
 <p>Leanna goes to Lake Luzport!</p>
 <p>Benjamin goes to Felicitystad!</p>
+*/
+```
+
+### Rendering template with placeholder in query parameter
+
+The placeholders are encoded if they are a part of a URL.
+
+```typescript
+import { renderTemplateToHtml } from 'mdformat'
+
+const content = 'Lorem [ipsum](https://dolor.com/?sit={{sit}}) amet'
+const data = {
+  sit: 'do&eiusmod=tempor',
+}
+const result = renderTemplateToHtml(content, data)
+/* Output:
+<p>Lorem <a href="https://dolor.com/?sit=do%26eiusmod%3Dtempor">ipsum</a> amet</p>\n
 */
 ```
 
@@ -144,7 +162,7 @@ To mitigate these risks, it's strongly recommended to employ post-processing tec
 
 Here's a basic example of how you can integrate [dompurify](https://www.npmjs.com/package/dompurify) into your application:
 
-```javascript
+```typescript
 import DOMPurify from 'dompurify'
 
 // Define 'content' and 'data'

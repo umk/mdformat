@@ -11,11 +11,11 @@ function formatHrefTemplate(template: Template): Template {
   for (let i = 0; i < template.parts.length; i++) {
     const part = template.parts[i]
     if (isPlaceholder(part)) {
-      if (previousRaw?.length && previousRaw[previousRaw.length - 1] === '=') {
+      if (previousRaw?.length && ['/', '='].includes(previousRaw[previousRaw.length - 1])) {
         part.formatter = formatQueryValue
       }
       previousRaw = undefined
-    } else {
+    } else if (part.length > 0) {
       previousRaw = part
     }
   }
