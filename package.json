@@ -22,10 +22,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/umk/MDformat.git"
+    "url": "git+https://github.com/umk/mdformat.git"
   },
   "bugs": {
-    "url": "https://github.com/umk/MDformat/issues"
+    "url": "https://github.com/umk/mdformat/issues"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
