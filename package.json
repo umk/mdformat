@@ -1,6 +1,6 @@
 {
   "name": "mdformat",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "An end user friendly Markdown template engine",
   "author": "Uladzislau Maslakou <umaslakou@gmail.com>",
   "homepage": "https://github.com/umk/mdformat#readme",

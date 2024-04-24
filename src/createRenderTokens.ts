@@ -1,14 +1,14 @@
 import TemplateDataByRefs from './TemplateDataByRefs'
 import TemplateRender, { getRenderRefs, isRender } from './TemplateRender'
+import { createTemplateRender } from './TemplateRender'
 import TemplateRenderPartial from './TemplateRenderPartial'
 import Token from './Token'
-import createTemplate from './createTemplate'
 import renderTemplate from './renderTemplate'
 
 function createRenderTokens(): TemplateRenderPartial {
   return function (token: Token, next: TemplateRender): TemplateRender {
     if ('tokens' in token && token.tokens) {
-      const renderToks = (token.tokens as Array<Token>).map(createTemplate)
+      const renderToks = (token.tokens as Array<Token>).map(createTemplateRender)
       if (renderToks.some(isRender)) {
         const render = (data: TemplateDataByRefs): Array<Token> => {
           const current = renderTemplate(next, data)

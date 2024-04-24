@@ -5,11 +5,11 @@ import Render, { createRender } from './Render'
 import Token from './Token'
 
 function renderTemplateToTokens(
-  content: string | Token | Array<Token> | Render,
+  template: string | Token | Array<Token> | Render,
   data: Content,
   lexer?: Lexer,
 ) {
-  const render = typeof content === 'function' ? content : createRender(content, lexer)
+  const render = typeof template === 'function' ? template : createRender(template, lexer)
   return render(data)
 }
 

@@ -1,14 +1,14 @@
 import TemplateDataByRefs, { groupDataByRefs } from './TemplateDataByRefs'
 import TemplateRender, { getRenderRefs, isRender } from './TemplateRender'
+import { createTemplateRender } from './TemplateRender'
 import TemplateRenderPartial from './TemplateRenderPartial'
 import Token from './Token'
-import createTemplate from './createTemplate'
 import renderTemplate from './renderTemplate'
 
-function createRenderTokens(): TemplateRenderPartial {
+function createRenderItems(): TemplateRenderPartial {
   return function (token: Token, next: TemplateRender): TemplateRender {
     if ('items' in token) {
-      const renderToks = token.items.map(createTemplate)
+      const renderToks = token.items.map(createTemplateRender)
       if (renderToks.some(isRender)) {
         const itemsRefs = renderToks.map(getRenderRefs)
         const render = (data: TemplateDataByRefs): Array<Token> => {
@@ -33,4 +33,4 @@ function createRenderTokens(): TemplateRenderPartial {
   }
 }
 
-export default createRenderTokens
+export default createRenderItems

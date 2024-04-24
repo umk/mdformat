@@ -1,14 +1,14 @@
 import TemplateDataByRefs, { groupDataByRefs } from './TemplateDataByRefs'
 import TemplateRender, { getRenderRefs, isRender } from './TemplateRender'
+import { createTemplateRender } from './TemplateRender'
 import TemplateRenderPartial from './TemplateRenderPartial'
 import Token from './Token'
-import createTemplate from './createTemplate'
 import renderTemplate from './renderTemplate'
 
 function createRenderRows(): TemplateRenderPartial {
   return function (token: Token, next: TemplateRender): TemplateRender {
     if ('rows' in token) {
-      const renderRows = token.rows.map((r) => r.map((c) => createTemplate(c as Token)))
+      const renderRows = token.rows.map((r) => r.map((c) => createTemplateRender(c as Token)))
       if (renderRows.some((r) => r.some(isRender))) {
         const rowsRefs = renderRows
           .map((r) => r.map(getRenderRefs))

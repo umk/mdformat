@@ -6,12 +6,12 @@ import Token from './Token'
 import renderTemplateToTokens from './renderTemplateToTokens'
 
 function renderTemplateToHtml(
-  content: string | Token | Array<Token> | Render,
+  template: string | Token | Array<Token> | Render,
   data: Content,
   lexer?: Lexer,
   parser?: Parser,
 ) {
-  const rendered = renderTemplateToTokens(content, data, lexer)
+  const rendered = renderTemplateToTokens(template, data, lexer)
   return (parser ?? new Parser()).parse(rendered)
 }
 

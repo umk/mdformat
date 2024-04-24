@@ -1,8 +1,26 @@
 import TemplateDataByRefs from './TemplateDataByRefs'
 import { Ref } from './TemplatePart'
 import Token from './Token'
+import createRenderItems from './createRenderItems'
+import createRenderRows from './createRenderRows'
+import createRenderString from './createRenderString'
+import createRenderTokens from './createRenderTokens'
+import formatHrefTemplate from './formatHrefTemplate'
 
 type TemplateRender = Token | TemplateGroupRender
+
+export const createTemplateRender = (() => {
+  const evaluations = [
+    createRenderString('text'),
+    createRenderString('title'),
+    createRenderString('href', formatHrefTemplate),
+    createRenderTokens(),
+    createRenderItems(),
+    createRenderRows(),
+  ]
+  return (token: Token) =>
+    evaluations.reduce<TemplateRender>((prev, cur) => cur(token, prev), token)
+})()
 
 export type TemplateGroupRender = {
   render: (data: TemplateDataByRefs) => Array<Token>
