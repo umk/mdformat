@@ -7,14 +7,7 @@
   "env": {
     "es6": true
   },
-  "ignorePatterns": [
-    "node_modules",
-    "**/node_modules",
-    "**/dist",
-    "**/coverage",
-    "**/src/__setup__",
-    "redirect.js"
-  ],
+  "ignorePatterns": ["node_modules", "dist", "coverage", "src/__setup__"],
   "plugins": ["@typescript-eslint", "import", "eslint-comments", "jest", "prettier"],
   "extends": [
     "eslint:recommended",
