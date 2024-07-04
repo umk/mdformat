@@ -18,7 +18,8 @@
     "test": "run-s test:*",
     "test:prettier": "prettier \"src/**/*.{ts,js}\" --list-different",
     "test:lint": "eslint src --ext .ts,.tsx,.js",
-    "test:unit": "jest test --silent"
+    "test:unit": "jest test --silent",
+    "test:unit:debug": "jest test"
   },
   "repository": {
     "type": "git",

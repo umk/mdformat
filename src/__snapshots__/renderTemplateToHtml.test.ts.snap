@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderTemplateToHtml renders nested lists 1`] = `
+"<ul>
+<li>Lorem proin consequat<ul>
+<li>Dolor sit Lorem ipsum dolor sit amet</li>
+<li>Dolor sit consectetur adipiscing elit</li>
+</ul>
+</li>
+<li>Lorem magna aliqua<ul>
+<li>Dolor sit Sed do eiusmod tempor</li>
+<li>Dolor sit incididunt ut labore</li>
+<li>Dolor sit et dolore magna aliqua</li>
+</ul>
+</li>
+<li>Lorem neque sit amet<ul>
+<li>Dolor sit Ut enim ad minim veniam</li>
+<li>Dolor sit quis nostrud exercitation ullamco laboris</li>
+</ul>
+</li>
+</ul>
+"
+`;

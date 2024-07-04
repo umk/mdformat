@@ -1,6 +1,7 @@
 import TemplateDataByRefs from './TemplateDataByRefs'
 import { Ref } from './TemplatePart'
 import Token from './Token'
+import createIgnoreComplexToken from './createIgnoreComplexToken'
 import createRenderItems from './createRenderItems'
 import createRenderRows from './createRenderRows'
 import createRenderString from './createRenderString'
@@ -11,7 +12,7 @@ type TemplateRender = Token | TemplateGroupRender
 
 export const createTemplateRender = (() => {
   const evaluations = [
-    createRenderString('text'),
+    createIgnoreComplexToken(createRenderString('text')),
     createRenderString('title'),
     createRenderString('href', formatHrefTemplate),
     createRenderTokens(),

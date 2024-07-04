@@ -87,4 +87,25 @@ describe('renderTemplateToHtml', () => {
       '<p>Lorem <a href="https://dolor.com/do%26eiusmod%3Dtempor/?sit=amet">ipsum</a> amet</p>\n',
     )
   })
+  it('renders nested lists', () => {
+    const content = '- Lorem {{ipsum.consectetur}}\n  - Dolor sit {{ipsum.amet}}'
+    const data = {
+      ipsum: [
+        {
+          consectetur: 'proin consequat',
+          amet: ['Lorem ipsum dolor sit amet', 'consectetur adipiscing elit'],
+        },
+        {
+          consectetur: 'magna aliqua',
+          amet: ['Sed do eiusmod tempor', 'incididunt ut labore', 'et dolore magna aliqua'],
+        },
+        {
+          consectetur: 'neque sit amet',
+          amet: ['Ut enim ad minim veniam', 'quis nostrud exercitation ullamco laboris'],
+        },
+      ],
+    }
+    const result = renderTemplateToHtml(content, data)
+    expect(result).toMatchSnapshot()
+  })
 })
