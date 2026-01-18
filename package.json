@@ -1,10 +1,11 @@
 {
   "name": "mdformat",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "An end user friendly Markdown template engine",
   "author": "Uladzislau Maslakou <umaslakou@gmail.com>",
   "homepage": "https://github.com/umk/mdformat#readme",
   "license": "MIT",
+  "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
   "types": "dist/mjs/index.d.ts",
@@ -18,8 +19,8 @@
     "test": "run-s test:*",
     "test:prettier": "prettier \"src/**/*.{ts,js}\" --list-different",
     "test:lint": "eslint src",
-    "test:unit": "jest test --silent",
-    "test:unit:debug": "jest test"
+    "test:unit": "NODE_OPTIONS=\"--experimental-vm-modules\" jest test --silent",
+    "test:unit:debug": "NODE_OPTIONS=\"--experimental-vm-modules\" jest test"
   },
   "repository": {
     "type": "git",

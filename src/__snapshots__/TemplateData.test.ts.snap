@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`template data gets template data for array field 1`] = `
 [
@@ -8,9 +8,9 @@ exports[`template data gets template data for array field 1`] = `
         "index": 0,
         "refs": {
           "name": [
-            "Eduardo",
-            "Leanna",
-            "Benjamin",
+            "Alice",
+            "Bob",
+            "Charlie",
           ],
         },
       },
@@ -22,9 +22,9 @@ exports[`template data gets template data for array field 1`] = `
         "index": 1,
         "refs": {
           "name": [
-            "Eduardo",
-            "Leanna",
-            "Benjamin",
+            "Alice",
+            "Bob",
+            "Charlie",
           ],
         },
       },
@@ -36,9 +36,9 @@ exports[`template data gets template data for array field 1`] = `
         "index": 2,
         "refs": {
           "name": [
-            "Eduardo",
-            "Leanna",
-            "Benjamin",
+            "Alice",
+            "Bob",
+            "Charlie",
           ],
         },
       },

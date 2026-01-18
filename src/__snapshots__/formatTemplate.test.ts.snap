@@ -1,55 +1,57 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`template creates template with single array data field 1`] = `
-"Hello Eduardo!
-Hello Leanna!
-Hello Benjamin!"
+"Hello Alice!
+Hello Bob!
+Hello Charlie!"
 `;
 
-exports[`template creates template with single data field 1`] = `"Hello Eduardo!"`;
+exports[`template creates template with single data field 1`] = `"Hello John!"`;
 
 exports[`template creates template with three combined array data fields 1`] = `
-"Eduardo goes to North Susanview on Feb, 5!
-Eduardo goes to Caylafurt on Jan, 1!
-Leanna goes to North Susanview on Feb, 5!
-Leanna goes to Caylafurt on Jan, 1!"
+"Alice goes to Paris on Feb, 5!
+Alice goes to London on Jan, 1!
+Bob goes to Paris on Feb, 5!
+Bob goes to London on Jan, 1!"
 `;
 
 exports[`template creates template with two permutated array data fields 1`] = `
-"Eduardo goes to Fort Haydenmouth!
-Leanna goes to Fort Haydenmouth!
-Benjamin goes to Fort Haydenmouth!
-Eduardo goes to Lake Luzport!
-Leanna goes to Lake Luzport!
-Benjamin goes to Lake Luzport!"
+"Alice goes to Paris!
+Bob goes to Paris!
+Charlie goes to Paris!
+Alice goes to London!
+Bob goes to London!
+Charlie goes to London!"
 `;
 
 exports[`template creates template with two zipped array data fields 1`] = `
-"Eduardo goes to Fort Haydenmouth!
-Leanna goes to Lake Luzport!
-Benjamin goes to Felicitystad!"
+"Alice goes to Paris!
+Bob goes to London!
+Charlie goes to Tokyo!"
 `;
 
-exports[`template creates template without data 1`] = `"Amor ventosus cur. Asporto rerum sit delego expedita consequuntur. Clam absens pecco laborum concido cohaero adstringo. Acsi ipsa talio certe. Tenetur modi utilis carus ullam."`;
+exports[`template creates template without data 1`] = `"Lorem ipsum dolor sit amet"`;
 
 exports[`template doesn't permutate properties, that are not referenced in template 1`] = `
-"Hello Eduardo!
-Hello Leanna!
-Hello Benjamin!"
+"Hello Alice!
+Hello Bob!
+Hello Charlie!"
 `;
 
 exports[`template preserves the substitution field if root property not found in the data 1`] = `"Hello {{name}}!"`;
 
+exports[`template renders object as JSON 1`] = `"User: {"name":"Alice","age":25}"`;
+
 exports[`template resolves array path properties preserving structure of data 1`] = `
-"Scotty Stark of age 51 lives in Effietown
-Anabel Wuckert of age 62 lives in Effietown
-Rusty Sporer of age 53 lives in New Chase
-Ansel Murray of age 53 lives in New Chase"
+"Alice Smith of age 25 lives in Paris
+Bob Jones of age 30 lives in Paris
+Charlie Brown of age 35 lives in London
+Diana Wilson of age 28 lives in London"
 `;
 
-exports[`template resolves path properties 1`] = `"Hello Eduardo Breitenberg!"`;
+exports[`template resolves path properties 1`] = `"Hello John Doe!"`;
 
 exports[`template takes the least number of zipped items 1`] = `
-"Eduardo goes to Fort Haydenmouth!
-Leanna goes to Lake Luzport!"
+"Alice goes to Paris!
+Bob goes to London!"
 `;

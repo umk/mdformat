@@ -26,6 +26,10 @@ export function formatTemplate(template: Template, data: TemplateData): string {
           if (part.formatter) {
             content = part.formatter(content)
           }
+          // Convert objects to JSON string
+          if (typeof content === 'object' && content !== null) {
+            return JSON.stringify(content)
+          }
           return content
         }
       }
