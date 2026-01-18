@@ -9,6 +9,11 @@
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
   "types": "dist/mjs/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "build": "rimraf ./dist && run-s build:*",
     "build:cjs": "tsc -p tsconfig.cjs.json",
