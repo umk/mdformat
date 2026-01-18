@@ -1,7 +1,7 @@
 import { createTemplate, getTemplateRefs } from './Template'
 import { getTemplateData } from './TemplateData'
 import { groupDataByRefs } from './TemplateDataByRefs'
-import formatTemplate from './formatTemplate'
+import { formatTemplate } from './formatTemplate'
 
 describe('groupDataByRefs', () => {
   it('groups data by zero refs', () => {

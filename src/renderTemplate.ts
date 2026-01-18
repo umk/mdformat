@@ -1,9 +1,11 @@
-import TemplateDataByRefs from './TemplateDataByRefs'
-import TemplateRender, { isRender } from './TemplateRender'
-import Token from './Token'
+import type { TemplateDataByRefs } from './TemplateDataByRefs'
+import type { TemplateGroupRender } from './TemplateRender'
+import { isRender } from './TemplateRender'
+import type { Token } from './Token'
 
-function renderTemplate(template: TemplateRender, data: TemplateDataByRefs): Array<Token> {
+export function renderTemplate(
+  template: Token | TemplateGroupRender,
+  data: TemplateDataByRefs,
+): Array<Token> {
   return isRender(template) ? template.render(data) : [template]
 }
-
-export default renderTemplate

@@ -1,8 +1,8 @@
-import Content from './Content'
-import TemplateData from './TemplateData'
-import { Ref } from './TemplatePart'
+import type { Content } from './Content'
+import type { TemplateData } from './TemplateData'
+import type { Ref } from './TemplatePart'
 
-type TemplateDataByRefs = {
+export type TemplateDataByRefs = {
   /**
    * The template data for grouped refs.
    */
@@ -55,7 +55,9 @@ export function groupDataByRefs(
               const dataByRef = data.reduce((prev, cur) => {
                 const value = cur.groups[groupId].refs[ref.path]
                 let arr = prev.get(value)
-                if (!arr) prev.set(value, (arr = []))
+                if (!arr) {
+                  prev.set(value, (arr = []))
+                }
                 arr.push(cur)
                 return prev
               }, new Map<Array<Content>, Array<TemplateData>>())
@@ -84,5 +86,3 @@ export function groupDataByRefs(
     [{ key: { groups: {} }, data }],
   )
 }
-
-export default TemplateDataByRefs

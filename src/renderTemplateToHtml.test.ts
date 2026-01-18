@@ -1,4 +1,4 @@
-import renderTemplateToHtml from './renderTemplateToHtml'
+import { renderTemplateToHtml } from './renderTemplateToHtml'
 
 describe('renderTemplateToHtml', () => {
   it('renders template without data references', () => {

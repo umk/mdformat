@@ -1,4 +1,4 @@
-import Content from './Content'
+import type { Content } from './Content'
 
 export type Ref = {
   /**
@@ -18,7 +18,7 @@ export type Ref = {
  */
 export type TemplateParts = Array<TemplatePart>
 
-type TemplatePart = string | Placeholder
+export type TemplatePart = string | Placeholder
 
 export type PlaceholderFormatter = (content: Content) => Content
 
@@ -43,5 +43,3 @@ export type Placeholder = Ref & {
 export function isPlaceholder(part: TemplatePart): part is Placeholder {
   return typeof part === 'object'
 }
-
-export default TemplatePart

@@ -1,4 +1,4 @@
-import { Placeholder, Ref, TemplateParts } from './TemplatePart'
+import type { Placeholder, Ref, TemplateParts } from './TemplatePart'
 
 const ID_REGEX = '[_\\p{L}][_\\p{L}\\p{Nd}]*'
 
@@ -17,7 +17,7 @@ const PATH_REGEX = `${ID_REGEX}(\\.${ID_REGEX})*`
  */
 const REF_REGEX = new RegExp(`\\{\\{((?<group>${ID_REGEX}):)?(?<path>${PATH_REGEX})\\}\\}`, 'gu')
 
-type Template = {
+export type Template = {
   /**
    * The template parts.
    */
@@ -67,5 +67,3 @@ export function createTemplate(template: string): Template {
     refs: Object.values(refs).flatMap((g) => Object.values(g)),
   } as Template
 }
-
-export default Template

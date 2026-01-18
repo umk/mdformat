@@ -1,10 +1,12 @@
-import { Tokens } from 'marked'
+import type { Tokens } from 'marked'
 
-type Token =
+export type Token =
   | Tokens.Space
   | Tokens.Code
   | Tokens.Heading
   | Tokens.Table
+  | Tokens.TableCell
+  | Tokens.TableRow
   | Tokens.Hr
   | Tokens.Blockquote
   | Tokens.List
@@ -22,5 +24,3 @@ type Token =
   | Tokens.Codespan
   | Tokens.Br
   | Tokens.Del
-
-export default Token

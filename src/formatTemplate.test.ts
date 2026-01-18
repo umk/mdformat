@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker'
 
 import { createTemplate } from './Template'
 import { getTemplateData } from './TemplateData'
-import formatTemplate from './formatTemplate'
+import { formatTemplate } from './formatTemplate'
 
 describe('template', () => {
   it('creates template without data', () => {

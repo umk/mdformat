@@ -1,16 +1,17 @@
-import { Tokens } from 'marked'
+import type { Tokens } from 'marked'
 
-import Template, { createTemplate, getTemplateRefs } from './Template'
-import TemplateDataByRefs from './TemplateDataByRefs'
-import TemplateRender, { getRenderRefs } from './TemplateRender'
-import TemplateRenderPartial from './TemplateRenderPartial'
-import Token from './Token'
-import formatTemplate from './formatTemplate'
-import renderTemplate from './renderTemplate'
+import { createTemplate, getTemplateRefs, type Template } from './Template'
+import type { TemplateDataByRefs } from './TemplateDataByRefs'
+import type { TemplateRender } from './TemplateRender'
+import { getRenderRefs } from './TemplateRender'
+import type { TemplateRenderPartial } from './TemplateRenderPartial'
+import type { Token } from './Token'
+import { formatTemplate } from './formatTemplate'
+import { renderTemplate } from './renderTemplate'
 
 export type TemplateFormatter = (template: Template) => Template
 
-function createRenderString(
+export function createRenderString(
   property: string,
   ...formatters: Array<TemplateFormatter>
 ): TemplateRenderPartial {
@@ -38,5 +39,3 @@ function createRenderString(
     return next
   }
 }
-
-export default createRenderString

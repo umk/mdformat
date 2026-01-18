@@ -1,4 +1,4 @@
-type Configuration = {
+export type Configuration = {
   maxPermutations: number
 }
 
@@ -15,5 +15,3 @@ export function configure(configuration: Partial<Configuration>) {
 }
 
 export { _configuration as configuration }
-
-export default Configuration

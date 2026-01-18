@@ -1,15 +1,14 @@
 import { Lexer } from 'marked'
 
-import Content from './Content'
+import type { Content } from './Content'
 import { getTemplateData } from './TemplateData'
 import { groupDataByRefs } from './TemplateDataByRefs'
-import { Ref } from './TemplatePart'
-import { getRenderRefs } from './TemplateRender'
-import { createTemplateRender } from './TemplateRender'
-import Token from './Token'
-import renderTemplate from './renderTemplate'
+import type { Ref } from './TemplatePart'
+import { createTemplateRender, getRenderRefs } from './TemplateRender'
+import type { Token } from './Token'
+import { renderTemplate } from './renderTemplate'
 
-type Render = ((data: Content) => Array<Token>) & {
+export type Render = ((data: Content) => Array<Token>) & {
   refs: Array<Ref>
 }
 
@@ -25,7 +24,7 @@ export function createRender(template: string | Token | Array<Token>, lexer?: Le
     const refs = getRenderRefs(renderTok)
     return { template: renderTok, refs }
   })
-  const render = function (data: Content) {
+  const render = function (data: Content): Array<Token> {
     return renderRefs.flatMap(({ template, refs }) => {
       const templateData = getTemplateData([...refs.groupRefs, ...refs.groupDataRefs], data)
       const groups = groupDataByRefs(templateData, refs.groupRefs)
@@ -36,5 +35,3 @@ export function createRender(template: string | Token | Array<Token>, lexer?: Le
     refs: renderRefs.flatMap((r) => [...r.refs.groupRefs, ...r.refs.groupDataRefs]),
   })
 }
-
-export default Render

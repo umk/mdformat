@@ -1,12 +1,12 @@
-import Content from './Content'
-import Template from './Template'
+import type { Content } from './Content'
+import type { Template } from './Template'
 import { isPlaceholder } from './TemplatePart'
 
 function formatQueryValue(content: Content): Content {
   return encodeURIComponent(String(content))
 }
 
-function formatHrefTemplate(template: Template): Template {
+export function formatHrefTemplate(template: Template): Template {
   let previousRaw: string | undefined = undefined
   for (let i = 0; i < template.parts.length; i++) {
     const part = template.parts[i]
@@ -21,5 +21,3 @@ function formatHrefTemplate(template: Template): Template {
   }
   return template
 }
-
-export default formatHrefTemplate

@@ -1,14 +1,15 @@
 import { configuration } from './Configuration'
-import Content, { ContentPrimitive } from './Content'
-import Template, { getTemplateRefs } from './Template'
-import { Ref } from './TemplatePart'
+import type { Content, ContentPrimitive } from './Content'
+import type { Template } from './Template'
+import { getTemplateRefs } from './Template'
+import type { Ref } from './TemplatePart'
 
 /**
  * A mapping from a group name to an object that contains
  * another mapping from a data reference field to substitution
  * for that field.
  */
-type TemplateData = {
+export type TemplateData = {
   groups: Record<string, TemplateDataGroup>
 }
 
@@ -127,5 +128,3 @@ function resolveContent(content: Content): Array<ContentPrimitive | Record<strin
   }
   return [content]
 }
-
-export default TemplateData

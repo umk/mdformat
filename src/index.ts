@@ -1,10 +1,12 @@
-import Configuration, { configure } from './Configuration'
-import Content, { ContentArray, ContentObject, ContentPrimitive } from './Content'
-import Render, { createRender } from './Render'
-import { Ref } from './TemplatePart'
-import Token from './Token'
-import renderTemplateToHtml from './renderTemplateToHtml'
-import renderTemplateToTokens from './renderTemplateToTokens'
+import { configure } from './Configuration'
+import type { Configuration } from './Configuration'
+import type { Content, ContentArray, ContentObject, ContentPrimitive } from './Content'
+import { createRender } from './Render'
+import type { Render } from './Render'
+import type { Ref } from './TemplatePart'
+import type { Token } from './Token'
+import { renderTemplateToHtml } from './renderTemplateToHtml'
+import { renderTemplateToTokens } from './renderTemplateToTokens'
 
 export {
   Configuration,

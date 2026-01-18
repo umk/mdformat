@@ -1,16 +1,15 @@
-import { Lexer } from 'marked'
+import type { Lexer, MarkedToken } from 'marked'
 
-import Content from './Content'
-import Render, { createRender } from './Render'
-import Token from './Token'
+import type { Content } from './Content'
+import type { Render } from './Render'
+import { createRender } from './Render'
+import type { Token } from './Token'
 
-function renderTemplateToTokens(
+export function renderTemplateToTokens(
   template: string | Token | Array<Token> | Render,
   data: Content,
   lexer?: Lexer,
-) {
+): Array<MarkedToken> {
   const render = typeof template === 'function' ? template : createRender(template, lexer)
-  return render(data)
+  return render(data) as Array<MarkedToken>
 }
-
-export default renderTemplateToTokens

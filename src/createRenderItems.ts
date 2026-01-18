@@ -1,11 +1,12 @@
-import TemplateDataByRefs, { groupDataByRefs } from './TemplateDataByRefs'
-import TemplateRender, { getRenderRefs, isRender } from './TemplateRender'
-import { createTemplateRender } from './TemplateRender'
-import TemplateRenderPartial from './TemplateRenderPartial'
-import Token from './Token'
-import renderTemplate from './renderTemplate'
+import type { TemplateDataByRefs } from './TemplateDataByRefs'
+import { groupDataByRefs } from './TemplateDataByRefs'
+import type { TemplateRender } from './TemplateRender'
+import { createTemplateRender, getRenderRefs, isRender } from './TemplateRender'
+import type { TemplateRenderPartial } from './TemplateRenderPartial'
+import type { Token } from './Token'
+import { renderTemplate } from './renderTemplate'
 
-function createRenderItems(): TemplateRenderPartial {
+export function createRenderItems(): TemplateRenderPartial {
   return function (token: Token, next: TemplateRender): TemplateRender {
     if ('items' in token) {
       const renderToks = token.items.map(createTemplateRender)
@@ -32,5 +33,3 @@ function createRenderItems(): TemplateRenderPartial {
     return next
   }
 }
-
-export default createRenderItems

@@ -1,14 +1,14 @@
-import TemplateDataByRefs from './TemplateDataByRefs'
-import { Ref } from './TemplatePart'
-import Token from './Token'
-import createIgnoreComplexToken from './createIgnoreComplexToken'
-import createRenderItems from './createRenderItems'
-import createRenderRows from './createRenderRows'
-import createRenderString from './createRenderString'
-import createRenderTokens from './createRenderTokens'
-import formatHrefTemplate from './formatHrefTemplate'
+import type { TemplateDataByRefs } from './TemplateDataByRefs'
+import type { Ref } from './TemplatePart'
+import type { Token } from './Token'
+import { createIgnoreComplexToken } from './createIgnoreComplexToken'
+import { createRenderItems } from './createRenderItems'
+import { createRenderRows } from './createRenderRows'
+import { createRenderString } from './createRenderString'
+import { createRenderTokens } from './createRenderTokens'
+import { formatHrefTemplate } from './formatHrefTemplate'
 
-type TemplateRender = Token | TemplateGroupRender
+export type TemplateRender = Token | TemplateGroupRender
 
 export const createTemplateRender = (() => {
   const evaluations = [
@@ -42,5 +42,3 @@ export function getRenderRefs(render: TemplateRender) {
   }
   return { groupRefs: [], groupDataRefs: [] }
 }
-
-export default TemplateRender

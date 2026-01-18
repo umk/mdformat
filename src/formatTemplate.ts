@@ -1,5 +1,5 @@
-import Template from './Template'
-import TemplateData from './TemplateData'
+import type { Template } from './Template'
+import type { TemplateData } from './TemplateData'
 import { isPlaceholder } from './TemplatePart'
 
 /**
@@ -10,7 +10,7 @@ import { isPlaceholder } from './TemplatePart'
  * @param data A template data record
  * @returns A string that represents the template bound to the data object.
  */
-function formatTemplate(template: Template, data: TemplateData): string {
+export function formatTemplate(template: Template, data: TemplateData): string {
   return template.parts
     .map((part) => {
       if (!isPlaceholder(part)) {
@@ -33,5 +33,3 @@ function formatTemplate(template: Template, data: TemplateData): string {
     })
     .join('')
 }
-
-export default formatTemplate

@@ -1,6 +1,4 @@
-import TemplateRender from './TemplateRender'
-import Token from './Token'
+import type { TemplateRender } from './TemplateRender'
+import type { Token } from './Token'
 
-type TemplateRenderPartial = (token: Token, next: TemplateRender) => TemplateRender
-
-export default TemplateRenderPartial
+export type TemplateRenderPartial = (token: Token, next: TemplateRender) => TemplateRender
